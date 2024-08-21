@@ -19,7 +19,7 @@ body {
 .socials-link {
   font-size: 1rem; /* Adjust the font size as needed */
   margin-right: 5px; /* Space between text and images */
-  color: rgb(0, 0, 0, 0.75); /* Adjust the text color if needed */
+  color: rgb(255, 255, 255); /* Adjust the text color if needed */
   text-decoration: none; /* Remove underline from link */
 }
 
@@ -36,12 +36,12 @@ body {
 }
 
 .navbar {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .navbar-brand {
   font-size: 500;
-  color: #4d4d4d;
+  color: #ffffff;
   font-variant-east-asian: simplified;
   text-decoration: none;
   align-items: start;
@@ -55,7 +55,7 @@ body {
 /* Nav Link */
 .nav-link {
   align-items: center;
-  color: #5e5e5e;
+  color: #ffffff;
 }
 
 .nav-link:hover {
@@ -80,8 +80,42 @@ body {
 .navbar-toggler:focus {
   text-decoration: none;
   border-width: 2px;
-  border-color: black;
+  border-color: rgb(255, 255, 255);
   color: transparent;
+}
+
+.navbar-toggler-icon {
+  background-color: transparent;
+  position: relative;
+  width: 25px; /* Reduced width */
+  height: 20px; /* Adjusted height */
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon .bar {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #059bdb;
+  position: absolute;
+  left: 0;
+  border-radius: 1.5px;
+}
+
+.navbar-toggler-icon::before {
+  top: 2px;
+}
+
+.navbar-toggler-icon::after {
+  bottom: 2px; /* Adjusted for consistency */
+}
+
+.navbar-toggler-icon .bar {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #059bdb;
 }
 
 /* Bounce animation */
