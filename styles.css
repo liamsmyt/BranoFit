@@ -37,6 +37,11 @@ body {
 
 .navbar {
   background-color: #000000;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-brand {
