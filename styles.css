@@ -87,7 +87,7 @@ body {
 .navbar-toggler-icon {
   background-color: transparent;
   position: relative;
-  width: 25px; /* Reduced width */
+  width: 22px; /* Reduced width */
   height: 20px; /* Adjusted height */
 }
 
