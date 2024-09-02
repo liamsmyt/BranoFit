@@ -129,6 +129,18 @@
                 />
               </div>
 
+              <div class="mb-3">
+                <label for="userPhone" class="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="userPhone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
               <!-- Existing form fields -->
               <div class="mb-3">
                 <label for="productSelect" class="form-label"
@@ -229,6 +241,7 @@
           // Collect form data
           const params = {
             name: document.getElementById("userName").value,
+            number: document.getElementById("userPhone").value,
             product: document.getElementById("productSelect").value,
             size: document.getElementById("productSize").value,
             pickupTime: document.getElementById("pickupTime").value,
