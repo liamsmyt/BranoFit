@@ -116,6 +116,20 @@
             </div>
             <!-- Product Request Form -->
             <form id="productRequestForm">
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label for="userName" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userName"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <!-- Existing form fields -->
               <div class="mb-3">
                 <label for="productSelect" class="form-label"
                   >Select Product</label
@@ -209,11 +223,12 @@
         .addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent default form submission
 
-          const serviceID = "service_u8aih1a"; // Your service ID
-          const templateID = "template_a77o2dp"; // Your product request template ID
+          const serviceID = "service_kuln9ss"; // Your service ID
+          const templateID = "template_qj62su8"; // Your product request template ID
 
           // Collect form data
           const params = {
+            name: document.getElementById("userName").value,
             product: document.getElementById("productSelect").value,
             size: document.getElementById("productSize").value,
             pickupTime: document.getElementById("pickupTime").value,
@@ -222,7 +237,7 @@
           // Send email with parameters
           emailjs.send(serviceID, templateID, params).then(
             () => {
-              alert("Request sent! We'll prepare your product for pickup.");
+              alert("Request sent! We'll be in touch to confirm your order.");
               this.reset(); // Reset the form after submission
             },
             (err) => {
