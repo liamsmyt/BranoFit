@@ -268,6 +268,38 @@ Can't make it to PT with me? No problem! I offer online coaching that includes c
       crossorigin="anonymous"
     ></script>
 
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const serviceID = "service_kuln9ss"; // Your service ID
+          const templateID = "template_a77o2dp"; // Your product request template ID
+
+          // Collect form data
+          const params = {
+            name: document.getElementById("contactName").value,
+            email: document.getElementById("contactEmail").value,
+            message: document.getElementById("contactMessage").value,
+          };
+
+          // Send email with parameters
+          emailjs.send(serviceID, templateID, params).then(
+            () => {
+              alert(
+                "Message sent! I'll get back to you soon, keep an eye on your email in the meantime"
+              );
+              this.reset(); // Reset the form after submission
+            },
+            (err) => {
+              console.error("Failed to send message.", err);
+              alert("Failed to send message.\n " + JSON.stringify(err));
+            }
+          );
+        });
+    </script>
+
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
