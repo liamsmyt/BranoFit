@@ -94,7 +94,6 @@
       </div>
     </nav>
 
-    <!-- Product Request Section -->
     <div class="container mt-5">
       <div class="row mx-1 mt-5">
         <div class="col-lg-12">
@@ -177,6 +176,18 @@
                   >
                     BranoFit Crewneck - €30
                   </option>
+                  <option
+                    value="BranoFit Halfzip(Male) - €40"
+                    data-image="media/halfzipMale.jpg"
+                  >
+                    BranoFit Halfzip(Male) - €40
+                  </option>
+                  <option
+                    value="BranoFit Halfzip(Female) - €40"
+                    data-image="media/halfzipMale.jpg"
+                  >
+                    BranoFit Halfzip(Female) - €40
+                  </option>
                 </select>
               </div>
               <div class="mb-3">
@@ -188,12 +199,7 @@
                   required
                 >
                   <option value="" disabled selected>Select a size</option>
-                  <option value="XS">XS</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                  <option value="XXL">XXL</option>
+                  <!-- Sizes will be dynamically populated by JavaScript -->
                 </select>
               </div>
               <div class="mb-3">
@@ -217,6 +223,55 @@
     </div>
 
     <footer class="text-center py-3 footer mx-5">&copy; LSWebDesign.</footer>
+
+    <script>
+      function updateProductSizes() {
+        const productSelect = document.getElementById("productSelect");
+        const productSize = document.getElementById("productSize");
+        const selectedProduct = productSelect.value;
+
+        // Clear current size options
+        productSize.innerHTML =
+          '<option value="" disabled selected>Select a size</option>';
+
+        if (selectedProduct.includes("Halfzip(Female)")) {
+          // Set specific sizes for Halfzip(Female)
+          const halfzipFemaleSizes = ["XS", "S", "M", "L", "XL"];
+          halfzipFemaleSizes.forEach((size) => {
+            const option = document.createElement("option");
+            option.value = size;
+            option.textContent = size;
+            productSize.appendChild(option);
+          });
+        } else if (selectedProduct.includes("Halfzip(Male)")) {
+          // Set specific sizes for Halfzip(Male)
+          const halfzipMaleSizes = ["S", "M", "L", "XL", "XXL"];
+          halfzipMaleSizes.forEach((size) => {
+            const option = document.createElement("option");
+            option.value = size;
+            option.textContent = size;
+            productSize.appendChild(option);
+          });
+        } else {
+          // Set default sizes for other products
+          const defaultSizes = ["XS", "S", "M", "L", "XL", "XXL"];
+          defaultSizes.forEach((size) => {
+            const option = document.createElement("option");
+            option.value = size;
+            option.textContent = size;
+            productSize.appendChild(option);
+          });
+        }
+      }
+
+      // Run function on page load
+      document.addEventListener("DOMContentLoaded", updateProductSizes);
+
+      // Update sizes on product selection change
+      document
+        .getElementById("productSelect")
+        .addEventListener("change", updateProductSizes);
+    </script>
 
     <!-- EmailJS Script -->
     <script
