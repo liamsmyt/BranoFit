@@ -188,6 +188,12 @@
                   >
                     BranoFit Halfzip(Female) - €40
                   </option>
+                  <option
+                    value="BranoFit Ladies Vest - €16"
+                    data-image="media/vest.png"
+                  >
+                    BranoFit Ladies Vest - €16
+                  </option>
                 </select>
               </div>
               <div class="mb-3">
@@ -234,7 +240,10 @@
         productSize.innerHTML =
           '<option value="" disabled selected>Select a size</option>';
 
-        if (selectedProduct.includes("Halfzip(Female)")) {
+        if (
+          selectedProduct.includes("Halfzip(Female)") ||
+          selectedProduct.includes("Ladies")
+        ) {
           // Set specific sizes for Halfzip(Female)
           const halfzipFemaleSizes = ["XS", "S", "M", "L", "XL"];
           halfzipFemaleSizes.forEach((size) => {
