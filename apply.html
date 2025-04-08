@@ -81,13 +81,13 @@
           <div class="navbar-nav mx-1">
             <a class="nav-link" href="index.html">Home</a>
             <a class="nav-link" href="about.html">About</a>
-            <a class="nav-link selected" aria-current="page" href="contact.html"
-              >Contact</a
-            >
+            <a class="nav-link" href="contact.html">Contact</a>
             <a class="nav-link" href="classes.html">Classes</a>
             <a class="nav-link" href="merch.html">Merch</a>
             <a class="nav-link" href="gallery.html">Gallery</a>
-            <a class="nav-link" href="apply.html">Join Now</a>
+            <a class="nav-link selected" aria-current="page" href="apply.html"
+              >Join Now</a
+            >
           </div>
 
           <a
@@ -104,14 +104,15 @@
       <div class="row mx-1 mt-5">
         <div class="col-lg-12">
           <div class="bg-light rounded p-4">
-            <h2 class="text-center class-card-title">Get In Touch</h2>
+            <h2 class="text-center class-card-title">Join now</h2>
             <p class="lead text-center class-card-secondary">
-              Got any questions or enquiries? Looking to join a class or receive
-              personal coaching?
+              Sign up for 1-on-1 training
             </p>
-            <p id="contact-info" class="fw-light">Email: branofit1@gmail.com</p>
-            <p id="contact-info" class="fw-light">Instagram: @_branofit._</p>
-            <p class="fw-light">Phone: +353 0858331553</p>
+            <p class="fw-light text-center">
+              *If there are no spaces currently available you will be added to
+              our waitlist and you will be notified when a space becomes
+              available
+            </p>
             <form id="contactForm">
               <div class="mb-3">
                 <label for="contactName" class="form-label">Name</label>
@@ -121,6 +122,19 @@
                   id="contactName"
                   name="name"
                   placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="contactPhone"
+                  name="phone"
+                  placeholder="Enter your phone number"
                   required
                 />
               </div>
@@ -137,19 +151,26 @@
                   required
                 />
               </div>
+
               <div class="mb-3">
-                <label for="contactMessage" class="form-label">Message</label>
-                <textarea
-                  class="form-control"
-                  id="contactMessage"
-                  name="message"
-                  rows="3"
-                  placeholder="Your message"
-                  required
-                ></textarea>
+                <label class="form-label"
+                  >Which services are you interested in?</label
+                >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="1:1 Personal Training"
+                    id="class3"
+                  />
+                  <label class="form-check-label" for="class3"
+                    >1:1 Personal Training</label
+                  >
+                </div>
               </div>
+
               <button type="submit" class="btn" id="customButton">
-                Submit
+                Join Waitlist
               </button>
             </form>
           </div>
@@ -167,7 +188,7 @@
     <script type="text/javascript">
       (function () {
         emailjs.init({
-          publicKey: "LiRwygA2lBvcrw_3E", // Your public key
+          publicKey: "2LuUzRW2nl6bPXc7r", // Your public key
         });
       })();
     </script>
@@ -176,29 +197,35 @@
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission
+          event.preventDefault();
 
-          const serviceID = "service_kuln9ss"; // Your service ID
-          const templateID = "template_a77o2dp"; // Your product request template ID
+          const serviceID = "service_7ilmdff";
+          const templateID = "template_n0h4sfh";
 
-          // Collect form data
+          const checkboxes = document.querySelectorAll(
+            'input[type="checkbox"]:checked'
+          );
+          const selectedClasses = Array.from(checkboxes)
+            .map((cb) => cb.value)
+            .join(", ");
+
           const params = {
             name: document.getElementById("contactName").value,
+            phone: document.getElementById("contactPhone").value,
             email: document.getElementById("contactEmail").value,
-            message: document.getElementById("contactMessage").value,
+            waitlist: `${selectedClasses}`,
           };
 
-          // Send email with parameters
           emailjs.send(serviceID, templateID, params).then(
             () => {
               alert(
-                "Message sent! I'll get back to you soon, keep an eye on your email in the meantime"
+                "You're on the waitlist! We'll be in touch as soon as there's a spot."
               );
-              this.reset(); // Reset the form after submission
+              this.reset();
             },
             (err) => {
-              console.error("Failed to send message.", err);
-              alert("Failed to send message.\n " + JSON.stringify(err));
+              console.error("Failed to submit.", err);
+              alert("Failed to join waitlist.\n " + JSON.stringify(err));
             }
           );
         });
