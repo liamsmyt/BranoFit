@@ -128,7 +128,7 @@
                   required
                 />
               </div>
-    
+
               <div class="mb-3">
                 <label for="userPhone" class="form-label">Phone Number</label>
                 <input
@@ -140,10 +140,12 @@
                   required
                 />
               </div>
-    
+
               <!-- Existing form fields -->
               <div class="mb-3">
-                <label for="productSelect" class="form-label">Select Product</label>
+                <label for="productSelect" class="form-label"
+                  >Select Product</label
+                >
                 <select
                   class="form-select form-control"
                   id="productSelect"
@@ -193,18 +195,6 @@
                   >
                     BranoFit Ladies Vest - €16
                   </option>
-                  <option
-                    value="Women’s Signature Workout Leggings - €35"
-                    data-image="media/leggings1.jpg"
-                  >
-                    Women’s Signature Workout Leggings - €35
-                  </option>
-                  <option
-                    value="Women’s Everyday Leggings - €30"
-                    data-image="media/leggings2.jpg"
-                  >
-                    Women’s Everyday Leggings - €30
-                  </option>
                 </select>
               </div>
               <div class="mb-3">
@@ -238,30 +228,31 @@
         </div>
       </div>
     </div>
-    
+
     <footer class="text-center py-3 footer mx-5">&copy; LSWebDesign.</footer>
-    
+
     <script>
       function updateProductImage() {
         const productSelect = document.getElementById("productSelect");
         const productImage = document.getElementById("productImage");
-        const selectedOption = productSelect.options[productSelect.selectedIndex];
+        const selectedOption =
+          productSelect.options[productSelect.selectedIndex];
         const imageUrl = selectedOption.getAttribute("data-image");
-    
+
         if (imageUrl) {
           productImage.src = imageUrl;
         }
       }
-    
+
       function updateProductSizes() {
         const productSelect = document.getElementById("productSelect");
         const productSize = document.getElementById("productSize");
         const selectedProduct = productSelect.value;
-    
+
         // Clear current size options
         productSize.innerHTML =
           '<option value="" disabled selected>Select a size</option>';
-    
+
         if (
           selectedProduct.includes("Halfzip(Female)") ||
           selectedProduct.includes("Ladies")
@@ -285,7 +276,16 @@
           });
         } else if (selectedProduct.includes("Signature Workout Leggings")) {
           // Set specific sizes for Women's Signature Workout Leggings
-          const leggingsSizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"];
+          const leggingsSizes = [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+          ];
           leggingsSizes.forEach((size) => {
             const option = document.createElement("option");
             option.value = size;
@@ -312,8 +312,6 @@
           });
         }
       }
-    </script>
-    
 
       // Run function on page load
       document.addEventListener("DOMContentLoaded", updateProductSizes);
