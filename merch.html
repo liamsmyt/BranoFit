@@ -155,55 +155,73 @@
                     value="BranoFit Oversized Tee - €20"
                     data-image="media/oversizedTee.jpg"
                   >
-                    BranoFit Oversized Tee - €20
+                    Oversized Tee - €20
                   </option>
                   <option
                     value="BranoFit Signature Workout Tee - €16"
                     data-image="media/fitTee.jpg"
                   >
-                    BranoFit Signature Workout Tee - €16
+                    Signature Workout Tee - €16
                   </option>
                   <option
                     value="BranoFit Varsity Hoodie - €30"
                     data-image="media/hoodie.jpg"
                   >
-                    BranoFit Varsity Hoodie - €30
+                    Varsity Hoodie - €30
                   </option>
                   <option
                     value="BranoFit Crewneck - €30"
                     data-image="media/crewneck.jpg"
                   >
-                    BranoFit Crewneck - €30
+                    Crewneck - €30
                   </option>
                   <option
-                    value="BranoFit Halfzip(Male) - €40"
+                    value="BranoFit Halfzip(Male) - €45"
                     data-image="media/halfzipMale.png"
                   >
-                    BranoFit Halfzip(Male) - €40
-                  </option>
-                  <option
-                    value="BranoFit Halfzip(Female) - €40"
-                    data-image="media/halfzipMale.png"
-                  >
-                    BranoFit Halfzip(Female) - €40
+                    Halfzip(Male) - €45
                   </option>
                   <option
                     value="BranoFit Ladies Vest - €16"
                     data-image="media/vest.png"
                   >
-                    BranoFit Ladies Vest - €16
+                    Ladies Vest - €16
                   </option>
                   <option
                     value="Women’s Signature Workout Leggings - €40"
                     data-image="media/leggings2.jpg"
                   >
-                    Women’s Signature Workout Leggings - €40
+                    Ladies Signature Workout Leggings - €40
                   </option>
                   <option
                     value="Women’s Everyday Leggings - €35"
                     data-image="media/leggings1.jpg"
                   >
-                    Women’s Everyday Leggings - €35
+                    Ladies Everyday Leggings - €35
+                  </option>
+                  <option
+                    value="Ladies 1/2 zip - €45"
+                    data-image="media/ladies-halfzip.jpg"
+                  >
+                    Ladies 1/2 zip - €45
+                  </option>
+                  <option
+                    value="Ladies signature workout shorts - €25"
+                    data-image="media/ladiessigshorts.png"
+                  >
+                    Ladies signature workout shorts - €25
+                  </option>
+                  <option
+                    value="BranoFit Sweat Towel - €12"
+                    data-image="media/towel.png"
+                  >
+                    Sweat Towel - €12
+                  </option>
+                  <option
+                    value="BranoFit Beanie - €14"
+                    data-image="media/beanie.jpeg"
+                  >
+                    Beanie - €14
                   </option>
                 </select>
               </div>
@@ -245,25 +263,14 @@
       function updateProductImage() {
         const productSelect = document.getElementById("productSelect");
         const productImage = document.getElementById("productImage");
-<<<<<<< HEAD
         const selectedOption =
           productSelect.options[productSelect.selectedIndex];
         const imageUrl = selectedOption.getAttribute("data-image");
 
-=======
-        const selectedOption = productSelect.options[productSelect.selectedIndex];
-        const imageUrl = selectedOption.getAttribute("data-image");
-    
->>>>>>> 932c6907d9e84f20ae44ac1b5d1f9e6bbcd9ca43
         if (imageUrl) {
           productImage.src = imageUrl;
         }
       }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 932c6907d9e84f20ae44ac1b5d1f9e6bbcd9ca43
       function updateProductSizes() {
         const productSelect = document.getElementById("productSelect");
         const productSize = document.getElementById("productSize");
@@ -273,58 +280,30 @@
         productSize.innerHTML =
           '<option value="" disabled selected>Select a size</option>';
     
-        if (
-          selectedProduct.includes("Halfzip(Female)") ||
-          selectedProduct.includes("Ladies")
-        ) {
-          // Set specific sizes for Halfzip(Female)
-          const halfzipFemaleSizes = ["XS", "S", "M", "L", "XL"];
-          halfzipFemaleSizes.forEach((size) => {
+        if (selectedProduct.includes("Ladies 1/2 zip")) {
+          // Set sizes for Ladies 1/2 zip
+          const ladiesHalfzipSizes = ["XS", "S", "M", "L", "XL"];
+          ladiesHalfzipSizes.forEach((size) => {
             const option = document.createElement("option");
             option.value = size;
             option.textContent = size;
             productSize.appendChild(option);
           });
-        } else if (selectedProduct.includes("Halfzip(Male)")) {
-          // Set specific sizes for Halfzip(Male)
-          const halfzipMaleSizes = ["S", "M", "L", "XL", "XXL"];
-          halfzipMaleSizes.forEach((size) => {
+        } else if (selectedProduct.includes("workout shorts")) {
+          // Set sizes for Ladies workout shorts
+          const shortsSizes = ["XS", "S", "M", "L", "XL"];
+          shortsSizes.forEach((size) => {
             const option = document.createElement("option");
             option.value = size;
             option.textContent = size;
             productSize.appendChild(option);
           });
-        } else if (selectedProduct.includes("Signature Workout Leggings")) {
-          // Set specific sizes for Women's Signature Workout Leggings
-<<<<<<< HEAD
-          const leggingsSizes = [
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "2XL",
-            "3XL",
-            "4XL",
-          ];
-=======
-          const leggingsSizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"];
->>>>>>> 932c6907d9e84f20ae44ac1b5d1f9e6bbcd9ca43
-          leggingsSizes.forEach((size) => {
-            const option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            productSize.appendChild(option);
-          });
-        } else if (selectedProduct.includes("Everyday Leggings")) {
-          // Set specific sizes for Women's Everyday Leggings
-          const everydayLeggingsSizes = ["XS", "S", "M", "L", "XL"];
-          everydayLeggingsSizes.forEach((size) => {
-            const option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            productSize.appendChild(option);
-          });
+        } else if (selectedProduct.includes("Sweat Towel") || selectedProduct.includes("Beanie")) {
+          // Set single size option for towel and beanie
+          const option = document.createElement("option");
+          option.value = "One Size";
+          option.textContent = "One Size";
+          productSize.appendChild(option);
         } else {
           // Set default sizes for other products
           const defaultSizes = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -338,13 +317,7 @@
       }
     </script>
 
-      // Run function on page load
-      document.addEventListener("DOMContentLoaded", updateProductSizes);
 
-      // Update sizes on product selection change
-      document
-        .getElementById("productSelect")
-        .addEventListener("change", updateProductSizes);
     </script>
 
     <!-- EmailJS Script -->
